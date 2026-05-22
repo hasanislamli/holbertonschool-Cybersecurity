@@ -1,2 +1,2 @@
 #!/bin/bash
-ip addr | grep -E "inet " | grep -v "127.0.0.1" | head -1 | awk '{print $2}' | cut -d/ -f1
+ip addr show 2>/dev/null | grep -A2 tun0 | grep "inet " | awk '{print $2}' | cut -d/ -f1

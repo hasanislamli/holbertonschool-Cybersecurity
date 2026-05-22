@@ -1,2 +1,2 @@
 #!/bin/bash
-IFS=. read -r a b c d <<< "$1"; IFS=. read -r e f g h <<< "$2"; printf "%d.%d.%d.%d\n" $(((a&e)|(~e&255))) $(((b&f)|(~f&255))) $(((c&g)|(~g&255))) $(((d&h)|(~h&255)))
+ip=$1 mask=$2; IFS=. read i1 i2 i3 i4 <<< "$ip"; IFS=. read m1 m2 m3 m4 <<< "$mask"; printf "%d.%d.%d.%d" $((i1|(255-m1))) $((i2|(255-m2))) $((i3|(255-m3))) $((i4|(255-m4)))
